@@ -1,0 +1,176 @@
+/* ---------------------- IMPORTS */
+
+
+/* ---------------------- BASIC SETUP */
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    /* font-family: Zilla Slab, sans-serif; */
+    font-family: Fredoka, sans-serif;
+    font-size: 18px;
+    color: #03262d;
+    min-height: 100vh;
+}
+
+
+/* ---------------------- BG COLOURS */
+
+.main--bg-blue-green{
+    background-color: rgba(116, 173, 186, 0.8);
+}
+
+.footer--bg-blue-black{
+    background-color: #03262d;
+}
+
+
+/* ---------------------- HEADER */
+
+header{
+    height: 50vh;
+
+    display:grid;
+    grid-template-rows: 1fr 5fr;
+}
+
+header h1{
+    /* font-family: Fredoka, sans-serif; */
+    font-family: Zilla Slab, sans-serif;
+
+    justify-self: center;
+    align-self: center;
+}
+
+.transparent-nav-container{
+  /* for making a nav bar that you can see behind */
+}
+
+
+/* ---------------------- MAIN */
+
+main{
+    height: 45vh;
+    padding: 1em;
+
+}
+
+
+/* ---------------------- BLOG TILES */
+
+.blog-tiles-container{
+    display: grid;
+    /* width */
+    grid-template-columns: repeat(4, 1fr);
+    /* height */
+    height: inherit;
+
+    padding-top: 1em;
+    gap: 1em;
+}
+
+.blog-tile{
+    position: relative;
+    /* align-self: center; */
+
+    color: #03262d;
+    /* height: 60%; */
+    /* overflow: clip; */
+
+    border-radius: 4px;
+}
+
+.blog-tile h3{
+    font-family: Zilla Slab, sans-serif;
+    /* font-family: Fredoka, sans-serif; */
+
+    height:50%;
+    text-align: center;
+    padding: 4em;
+}
+
+.blog-tile p{
+    height: 50%;
+
+    text-align: center;
+    padding: 1em;
+
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.read-more{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    /* right: 50%; */
+
+    color: #fff;
+    background-color:rgba(3, 38, 45, 0.8);
+}
+
+
+/* ---------------------- BLOG CONTENT */
+
+.blog-content-container{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1em;
+}
+
+.blog-content-container div{
+    padding: 2% 20% 0 20%;
+    text-align: center;
+}
+
+.blog-content-container p{
+    padding: 1%;
+}
+
+
+/* ---------------------- FOOTER */
+
+footer{
+    color: #fff;
+    height: 5vh;
+    display:flex;
+    font-size: 16px;
+}
+
+footer ul{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+}
+
+footer li{
+    align-self: center;
+    padding:0;
+}
+
+
+/* ---------------------- NAV */
+
+nav{
+    justify-self: center;
+    padding:1em;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ---------------------- LISTS */
+
+.vertical-list li{
+    display: inline;
+    padding: 0 1em 0 1em;
+}
