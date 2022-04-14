@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+ 
+<!-- blog selection page -->
+ 
+<!-- <ul class="vertical-list">
+        <li>By date</li>
+        <li>Topic</li>
+        <li>A-Z</li>
+    </ul> -->
+
+<!-- INSERT homepage image -->
+ 
+<!-- using css grid display for the titles -->
+<div class="blog-tiles-container">
+    <!-- getting blog data -->
+    {% for blog in blog_list %}
+    <div class="blog-tile">
+        <!-- blog image -->
+        <div>
+            <!-- using default if none provided -->
+            {% if "placeholder" in blog.image.url %}
+            <!-- ADD DEFAULT IMG -->
+                <img src="#" alt="Blog Tile Image">
+            {% else %}
+                <!-- display the blog's choosen image -->
+                <img src=" {{ blog.image.url }}" alt="Blog Tile Image">
+            {% endif %}
+        </div>
+        <!-- author name -->
+        <div>
+            <p>Author: {{ blog.author }}</p>
+        </div>
+        <!-- title and summary as a link to blog_view -->
+        <a href="{% url 'blog_view' blog.slug %}">
+            <h3>{{ blog.title }}</h3>
+            <p>{{ blog.summary }}</p>
+        </a>
+        <hr>
+        <!-- created date -->
+        <p>{{ blog.created_date }}</p>
+ 
+        <!-- number of like and comments -->
+        <p>
+            <i class="fa-thin fa-hands-clapping"></i>
+            <!-- <i class="fa-solid fa-hands-clapping"></i> -->
+            {{ blog.number_of_likes }}
+            <i class="fa-solid fa-comments"></i>
+            {{ blog.number_of_comments }}
+        </p>
+    </div>  
+    {% endfor %}      
+</div>
+ 
+<!-- ADD django boilerplate pagination code for new pages -->
+ 
+{% endblock content %}

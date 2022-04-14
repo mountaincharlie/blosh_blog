@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- include crispy forms for comments -->
+
+<!-- alert messages -->
+
+<!-- blog content/layout -->
+<div>
+    <h1>{{ blog.title }}</h1>
+    <p>
+        {{ blog.author }}|{{ blog.created_date }}
+    </p>
+    <div>
+        <!-- blog image -->
+        <img src="#" alt="">
+    </div>
+</div>
+<!-- blog content -->
+<div>
+    <p>
+        {{ blog.content | safe }}
+    </p>
+</div>
+
+<!-- the like icon whether user is logged in or not -->
+<div>
+    <p>
+        <i class="fa-thin fa-hands-clapping"></i>
+        {{ blog.number_of_likes }}
+    </p>
+</div>
+
+<!-- comments -->
+<div>
+    <p>
+        <i class="fa-solid fa-comments"></i>
+        {{ blog.number_of_comments }}
+    </p>
+</div>
+
+<hr>
+
+<!-- displaying approved comments -->
+<div>
+    <h3>Comments:</h3>
+    <div>
+        {% for comment in comments %}
+        <div>
+            <p>
+                {{ comment.name }}
+                {{ comment.created_date }}
+                wrote:
+            </p>
+            {{ comment.body | linebreaks}}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- awaiting approval message/leave a comment form -->
+
+{% endblock content %}
