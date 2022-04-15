@@ -35,7 +35,7 @@
     </head>
 
     <body>
-        <!-- transparent navbar -->
+        <!-- navbar -->
         <header class="transparent-nav-container">
             <nav>
                 <ul class="vertical-list">
@@ -48,6 +48,11 @@
         </header>
 
         <!-- displaying messages to user -->
+
+        <div class="banner-image-container">
+            {% block banner %}
+            {% endblock banner %}
+        </div>
         
         <!-- templates content -->
         <main class="main--bg-blue-green">
