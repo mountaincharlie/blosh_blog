@@ -98,7 +98,8 @@ nav li{
 /* ---------------------- MAIN */
 
 main{
-    height: 45vh;
+    min-height: 45vh;
+    display:flex;
 }
 
 
@@ -106,13 +107,12 @@ main{
 
 .blog-tiles-container{
     height:100%;
-    padding: 0.5em;
+    padding: 1em;
+    align-self: center;
+}
 
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-
-    padding-top: 1em;
-    gap: 1em;
+.blog-tiles-container a{
+    width:auto;
 }
 
 .blog-tile{
@@ -153,6 +153,25 @@ main{
     color: #fff;
     background-color:rgba(3, 38, 45, 0.8);
 } */
+
+
+/* ---------------------- BLOG CARDS */
+
+/* bootstrap class edit */
+.card{
+    width: 18rem;
+    height: 18rem;
+
+    text-align: center;
+    justify-content: center;
+}
+/* bootstrap class edit */
+.row{
+    --bs-gutter-y: 1.5rem;
+    display:flex;
+    justify-content: center;
+    /* margin:0; */
+}
 
 
 /* ---------------------- BLOG CONTENT */

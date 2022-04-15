@@ -14,47 +14,98 @@
         <li>Topic</li>
         <li>A-Z</li>
     </ul> -->
- 
-<!-- using css grid display for the titles -->
-<div class="blog-tiles-container">
-    <!-- getting blog data -->
-    {% for blog in blog_list %}
-    <div class="blog-tile">
-        <!-- blog image -->
-        <div>
-            <!-- using default if none provided -->
-            {% if "placeholder" in blog.image.url %}
-            <!-- ADD DEFAULT IMG -->
-                <img src="#" alt="Blog Tile Image">
-            {% else %}
-                <!-- display the blog's choosen image -->
-                <img src=" {{ blog.image.url }}" alt="Blog Tile Image">
-            {% endif %}
-        </div>
-        <!-- author name -->
-        <div>
-            <p>Author: {{ blog.author }}</p>
-        </div>
-        <!-- title and summary as a link to blog_view -->
-        <a href="{% url 'blog_view' blog.slug %}">
-            <h3>{{ blog.title }}</h3>
-            <p>{{ blog.summary }}</p>
+
+
+<!-- using boostrap rows and cards for tiles -->
+<div class="blog-tiles-container container">
+    <div class="row">
+        <a href="#">
+            <!-- each col is a card container -->
+            <div class="col-sm col-md-4 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <img class="card-img-top" src="../static/images/blog-img-fullsize.jpg" alt="blog image">
+                        <div class="card-img-overlay">
+                            <!-- <h3>{{ blog.title }}</h3> -->
+                            <!-- <p>{{ blog.summary }}</p> -->
+                            <h3>BLOG TITLE</h3>
+                            <p>BLOG SUMMARY</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <!-- <p>{{ blog.created_date }}</p> -->
+                        <p>dd/mm/yyyy</p>
+                    </div>
+                </div>
+            </div>
         </a>
-        <hr>
-        <!-- created date -->
-        <p>{{ blog.created_date }}</p>
- 
-        <!-- number of like and comments -->
-        <p>
-            <i class="fa-thin fa-hands-clapping"></i>
-            <!-- <i class="fa-solid fa-hands-clapping"></i> -->
-            {{ blog.number_of_likes }}
-            <i class="fa-solid fa-comments"></i>
-            {{ blog.number_of_comments }}
-        </p>
-    </div>  
-    {% endfor %}      
+        <a href="#">
+            <!-- each col is a card container -->
+            <div class="col-sm col-md-4 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <img class="card-img-top" src="../static/images/blog-img-fullsize.jpg" alt="blog image">
+                        <div class="card-img-overlay">
+                            <!-- <h3>{{ blog.title }}</h3> -->
+                            <!-- <p>{{ blog.summary }}</p> -->
+                            <h3>BLOG TITLE</h3>
+                            <p>BLOG SUMMARY</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <!-- <p>{{ blog.created_date }}</p> -->
+                        <p>dd/mm/yyyy</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <!-- each col is a card container -->
+            <div class="col-sm col-md-4 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <img class="card-img-top" src="../static/images/blog-img-fullsize.jpg" alt="blog image">
+                        <div class="card-img-overlay">
+                            <!-- <h3>{{ blog.title }}</h3> -->
+                            <!-- <p>{{ blog.summary }}</p> -->
+                            <h3>BLOG TITLE</h3>
+                            <p>BLOG SUMMARY</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <!-- <p>{{ blog.created_date }}</p> -->
+                        <p>dd/mm/yyyy</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <!-- each col is a card container -->
+            <div class="col-sm col-md-4 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <img class="card-img-top" src="../static/images/blog-img-fullsize.jpg" alt="blog image">
+                        <div class="card-img-overlay">
+                            <!-- <h3>{{ blog.title }}</h3> -->
+                            <!-- <p>{{ blog.summary }}</p> -->
+                            <h3>BLOG TITLE</h3>
+                            <p>BLOG SUMMARY</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <!-- <p>{{ blog.created_date }}</p> -->
+                        <p>dd/mm/yyyy</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
 </div>
+
+
+
+
  
 <!-- ADD django boilerplate pagination code for new pages -->
  
