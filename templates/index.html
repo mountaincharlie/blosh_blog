@@ -34,13 +34,16 @@
                         <div class="card-img-overlay">
                             <h3>{{ blog.title }}</h3>
                             <p>{{ blog.summary }}</p>
-                            <!-- <h3>BLOG TITLE</h3> -->
-                            <!-- <p>Blog summary</p> -->
                         </div>
                     </div>
                     <div class="card-footer text-muted">
-                        <p>{{ blog.created_date }}</p>
-                        <!-- <p>dd/mm/yyyy</p> -->
+                        <p>
+                            {{ blog.created_date }} |
+                            <i class="fa-solid fa-hands-clapping fa-xs"></i>
+                            {{ blog.number_of_likes }} 
+                            <i class="fa-solid fa-comments fa-xs"></i>
+                            {{ blog.number_of_comments }}
+                        </p>
                     </div>
                 </div>
             </div>
