@@ -19,88 +19,84 @@
 <!-- using boostrap rows and cards for tiles -->
 <div class="blog-cards-container container">
     <div class="row">
-        <a href="#">
-            <!-- each col is a card container -->
-            <div class="col-sm col-md-4 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <img class="card-img-top" src="../static/images/blog-img-fullsize.jpg" alt="blog image">
-                        <div class="card-img-overlay">
-                            <!-- <h3>{{ blog.title }}</h3> -->
-                            <!-- <p>{{ blog.summary }}</p> -->
-                            <h3>BLOG TITLE</h3>
-                            <p>Blog summary</p>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <!-- <p>{{ blog.created_date }}</p> -->
-                        <p>dd/mm/yyyy</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <a href="#">
-            <!-- each col is a card container -->
-            <div class="col-sm col-md-4 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <img class="card-img-top" src="../static/images/blog-img-fullsize.jpg" alt="blog image">
-                        <div class="card-img-overlay">
-                            <!-- <h3>{{ blog.title }}</h3> -->
-                            <!-- <p>{{ blog.summary }}</p> -->
-                            <h3>BLOG TITLE</h3>
-                            <p>BLOG SUMMARY</p>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <!-- <p>{{ blog.created_date }}</p> -->
-                        <p>dd/mm/yyyy</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <a href="#">
-            <!-- each col is a card container -->
-            <div class="col-sm col-md-4 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <img class="card-img-top" src="../static/images/blog-img-fullsize.jpg" alt="blog image">
-                        <div class="card-img-overlay">
-                            <!-- <h3>{{ blog.title }}</h3> -->
-                            <!-- <p>{{ blog.summary }}</p> -->
-                            <h3>BLOG TITLE</h3>
-                            <p>BLOG SUMMARY</p>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <!-- <p>{{ blog.created_date }}</p> -->
-                        <p>dd/mm/yyyy</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <a href="#">
-            <!-- each col is a card container -->
-            <div class="col-sm col-md-4 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <img class="card-img-top" src="../static/images/blog-img-fullsize.jpg" alt="blog image">
-                        <div class="card-img-overlay">
-                            <!-- <h3>{{ blog.title }}</h3> -->
-                            <!-- <p>{{ blog.summary }}</p> -->
-                            <h3>BLOG TITLE</h3>
-                            <p>BLOG SUMMARY</p>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <!-- <p>{{ blog.created_date }}</p> -->
-                        <p>dd/mm/yyyy</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
 
+        <!-- forloop to generate all the blog cards in this row -->
+        {% for blog in blog_list %}
+
+        <!-- entire card is a link to the blog's view -->
+        <a href="{% url 'blog_view' blog.slug %}">
+            <!-- each col is a card container -->
+            <div class="col-sm col-md-4 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- change to if statement with placeholder img -->
+                        <img class="card-img" src="../static/images/blog-img-fullsize.jpg" alt="blog image">
+                        <div class="card-img-overlay">
+                            <h3>{{ blog.title }}</h3>
+                            <p>{{ blog.summary }}</p>
+                            <!-- <h3>BLOG TITLE</h3> -->
+                            <!-- <p>Blog summary</p> -->
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <p>{{ blog.created_date }}</p>
+                        <!-- <p>dd/mm/yyyy</p> -->
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        {% endfor %}
+        <!-- <a href="#">
+            <div class="col-sm col-md-4 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <img class="card-img-top" src="../static/images/blog-img-fullsize.jpg" alt="blog image">
+                        <div class="card-img-overlay">
+                            <h3>BLOG TITLE</h3>
+                            <p>BLOG SUMMARY</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <p>dd/mm/yyyy</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="col-sm col-md-4 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <img class="card-img-top" src="../static/images/blog-img-fullsize.jpg" alt="blog image">
+                        <div class="card-img-overlay">
+                            <h3>BLOG TITLE</h3>
+                            <p>BLOG SUMMARY</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <p>dd/mm/yyyy</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="col-sm col-md-4 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <img class="card-img-top" src="../static/images/blog-img-fullsize.jpg" alt="blog image">
+                        <div class="card-img-overlay">
+                            <h3>BLOG TITLE</h3>
+                            <p>BLOG SUMMARY</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <p>dd/mm/yyyy</p>
+                    </div>
+                </div>
+            </div>
+        </a> -->
+
+    </div>
 </div>
 
 
