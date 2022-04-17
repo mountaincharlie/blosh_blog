@@ -34,39 +34,10 @@ body{
 header{
     height: 5vh;
     display:flex;
+    justify-content: center;
 
     /* display:grid;
     grid-template-rows: 1fr 5fr; */
-}
-
-header h1{
-    /* font-family: Fredoka, sans-serif; */
-    font-family: Zilla Slab, sans-serif;
-
-    /* justify-self: center; */
-    /* align-self: center; */
-}
-
-.transparent-nav-container{
-  /* for making a nav bar that you can see behind */
-  background-color: rgba(255, 255, 255, 0);
-}
-
-nav{
-    display:flex;
-}
-
-nav ul {
-    width:100%;
-    justify-self: center;
-
-    display:flex;
-    /* justify-content: space-between; */
-}
-
-nav li{
-    align-self: center;
-    /* padding:0; */
 }
 
 /* ---------------------- PAGE IMG */
@@ -83,18 +54,6 @@ nav li{
     object-fit: cover;
 }
 
-/* ---------------------- PAGE H1 */
-
-.banner-h1{
-    font-size: 56px;
-    position: absolute;
-    color: #fff;
-    left: 50%;
-    top: 25%;
-    transform: translate( -50%, -50% );
-}
-
-
 /* ---------------------- MAIN */
 
 main{
@@ -102,57 +61,55 @@ main{
     display:flex;
 }
 
+/* ---------------------- BANNER H1 */
 
-/* ---------------------- BLOG TILES */
-
-.blog-tiles-container{
-    height:100%;
-    padding: 1em;
-    align-self: center;
-}
-
-.blog-tiles-container a{
-    width:auto;
-}
-
-.blog-tile{
-    position: relative;
-    /* align-self: center; */
-
-    color: #03262d;
-    height: 60%;
-    overflow: clip;
-
-    border-radius: 4px;
-}
-
-.blog-tile h3{
-    font-family: Zilla Slab, sans-serif;
-    /* font-family: Fredoka, sans-serif; */
-
-    /* height:50%; */
-    text-align: center;
-    padding: 4em;
-}
-
-.blog-tile p{
-    /* height: 50%; */
-
-    text-align: center;
-    padding: 1em;
-
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-/* .read-more{
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    bottom: 0;
-
+.banner-h1{
     color: #fff;
-    background-color:rgba(3, 38, 45, 0.8);
-} */
+    font-family: Zilla Slab, sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate( -50%, -50% );
+}
+
+/* ---------------------- NAV / HORIZONTAL LISTS */
+
+nav{
+    color: #03262d;
+    justify-self: center;
+    padding:1em;
+    display:flex;
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover{
+    color: rgba(116, 173, 186, 0.8);
+}
+
+.horizontal-list {
+    margin:0;
+    padding:0;
+    list-style-type: none; 
+
+    width:100%;
+    display:flex;
+    justify-self: center;
+    justify-content: space-between;
+}
+
+.horizontal-list li{
+    align-self: center;
+    display: inline;
+    padding: 0 1em 0 1em;
+}
 
 
 /* ---------------------- BLOG CARDS */
@@ -173,6 +130,29 @@ main{
     /* margin:0; */
 }
 
+.blog-cards-container{
+    height:100%;
+    padding: 1em;
+    align-self: center;
+}
+
+.blog-cards-container a{
+    width:auto;
+}
+
+.card h3{
+    font-family: Zilla Slab, sans-serif;
+}
+
+/* .read-more{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+
+    color: #fff;
+    background-color:rgba(3, 38, 45, 0.8);
+} */
 
 /* ---------------------- BLOG CONTENT */
 
@@ -202,35 +182,4 @@ footer{
     height: 5vh;
     display:flex;
     font-size: 16px;
-}
-
-footer ul{
-    width:100%;
-    display:flex;
-    justify-content: space-between;
-}
-
-footer li{
-    align-self: center;
-    padding:0;
-}
-
-
-/* ---------------------- NAV */
-
-nav{
-    justify-self: center;
-    padding:1em;
-}
-
-a{
-    text-decoration: none;
-    color: inherit;
-}
-
-/* ---------------------- LISTS */
-
-.vertical-list li{
-    display: inline;
-    padding: 0 1em 0 1em;
 }
