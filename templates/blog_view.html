@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% block banner %}
+<h1 class="banner-h1 blog-view-h1">{{ blog.title }}</h1>
+<!-- blog image -->
+<img src="../static/images/blog-img-fullsize.jpg" alt="blog image">
+{% endblock banner %}
+
 {% block content %}
 
 <!-- include crispy forms for comments -->
@@ -8,13 +14,11 @@
 
 <!-- blog content/layout -->
 <div>
-    <h1>{{ blog.title }}</h1>
     <p>
         {{ blog.author }}|{{ blog.created_date }}
     </p>
     <div>
-        <!-- blog image -->
-        <img src="#" alt="">
+        
     </div>
 </div>
 <!-- blog content -->

@@ -64,7 +64,6 @@ main{
 /* ---------------------- BANNER H1 */
 
 .banner-h1{
-    color: #fff;
     font-family: Zilla Slab, sans-serif;
     font-size: 56px;
     font-weight: 700;
@@ -73,6 +72,14 @@ main{
     left: 50%;
     top: 25%;
     transform: translate( -50%, -50% );
+}
+
+.homepage-h1{
+    color: #fff;
+}
+
+.blog-view-h1{
+    color: #03262d;
 }
 
 /* ---------------------- NAV / HORIZONTAL LISTS */
