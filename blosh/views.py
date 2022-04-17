@@ -20,7 +20,7 @@ class BlogView(View):
     # including standard arguments and keyword args
     def get(self, request, slug, *args, **kwargs):
         queryset = Blog.objects.filter(status=1)  # all published blogs
-        blog = get_object_or_404(queryset, slug=slug)  #  blog with its slug
+        blog = get_object_or_404(queryset, slug=slug)  # blog with its slug
 
         # getting all the approved comments in date order
         comments = Comment.objects.filter(approved=True).order_by('created_date')
@@ -29,7 +29,7 @@ class BlogView(View):
         # checking if the specific user liked it (using user.id)
         if blog.likes.filter(id=self.request.user.id).exists():
             liked = True
-    
+
         # sending all this info to the render method
         return render(
             request,
@@ -43,7 +43,7 @@ class BlogView(View):
                 # "comment_form": CommentForm()
             },
         )
-    
+
     # POST method to add
     # getting date from comment_form
     # checking if a comment has been made (is True)
