@@ -58,7 +58,7 @@ header{
 
 main{
     min-height: 45vh;
-    display:flex;
+    /* display:flex; */
 }
 
 /* ---------------------- BANNER H1 */
@@ -80,6 +80,19 @@ main{
 
 .blog-view-h1{
     color: #03262d;
+}
+
+/* ---------------------- BLOG VIEW */
+
+.blog-view{
+    padding: 2em 10em;
+    background-color: #fff;
+}
+
+.blog-view hr{
+    color: #03262d;
+    margin: 2em auto;
+    width: 50%;
 }
 
 /* ---------------------- NAV / HORIZONTAL LISTS */
@@ -177,6 +190,10 @@ a:hover{
     height: 15%;
     font-family: Zilla Slab, sans-serif;
     /* font-weight: 600; */
+}
+
+.card-footer i{
+    margin-left:5px;
 }
 
 /* .read-more{
