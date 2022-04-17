@@ -22,6 +22,18 @@ class BlogAdmin(SummernoteModelAdmin):
     # fields to search by
     search_fields = ('title', 'content', 'status')
 
+    # which of this class's methods to allow as actions
+    actions = ['publish_blog', 'draft_blog']
+
+    # changing status to 1 (published)
+    def publish_blog(self, request, queryset):
+        queryset.update(status=1)
+
+    # changing status to 0 (draft)
+    def draft_blog(self, request, queryset):
+        queryset.update(status=0)
+
+
 
 # customising the comments viewing/approving section
 @admin.register(Comment)
