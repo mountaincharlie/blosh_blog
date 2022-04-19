@@ -85,6 +85,7 @@ main{
 /* ---------------------- BLOG VIEW */
 
 .blog-view{
+    width:100%;
     padding: 2em 10em;
     background-color: #fff;
 }
@@ -136,6 +137,8 @@ a:hover{
 
 /* bootstrap class edit */
 .card{
+    border: none;
+
     width: 18rem;
     height: 18rem;
 
@@ -162,7 +165,10 @@ a:hover{
 
 .card-img{
     /* width:auto; */
-    height:100%;
+    /* height:100%; */
+    width: 100%;
+    height: 85%;
+    object-fit: cover;
 }
 
 .card h3{
@@ -171,12 +177,6 @@ a:hover{
 }
 .card p{
     font-size:16px;
-}
-
-.card-body {
-    padding:0;
-    width:100%;
-    height:100%;
 }
 
 .card-img-overlay{

@@ -28,14 +28,20 @@
             <!-- each col is a card container -->
             <div class="col-sm col-md-4 col-lg-6">
                 <div class="card">
-                    <div class="card-body">
-                        <!-- placeholder img statement -->
-                        <img class="card-img" src="media/images/blog-img-fullsize.jpg" alt="blog image">
-                        <div class="card-img-overlay">
-                            <h3>{{ blog.title }}</h3>
-                            <p>{{ blog.summary }}</p>
-                        </div>
+                    <!-- card bg image -->
+                    {% if "placeholder" in blog.main_image.url %}
+                        <!-- placeholder image in media dir -->
+                        <img class="card-img" src="media/images/placeholder-img.jpg" alt="blog image">
+                    {% else %}
+                        <!-- database image in Cloudinary -->
+                        <img class="card-img" src=" {{ blog.main_image.url }}" alt="blog image">
+                    {% endif %}
+                    <!-- image overlay -->
+                    <div class="card-img-overlay">
+                        <h3>{{ blog.title }}</h3>
+                        <p>{{ blog.summary }}</p>
                     </div>
+                    <!-- card footer -->
                     <div class="card-footer text-muted">
                         <p>
                             {{ blog.created_date }} |

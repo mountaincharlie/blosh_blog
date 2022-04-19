@@ -4,7 +4,14 @@
 <h1 class="banner-h1 blog-view-h1">{{ blog.title }}</h1>
 <!-- blog image -->
 <!-- placeholder img statement -->
-<img src="media/images/blog-img-fullsize.jpg" alt="blog image">
+{% if "placeholder" in blog.main_image.url %}
+    <!-- placeholder image in media dir -->
+    <img class="card-img" src="media/images/placeholder-img.jpg" alt="blog image">
+{% else %}
+    <!-- database image in Cloudinary -->
+    <img class="card-img" src=" {{ blog.main_image.url }}" alt="blog image">
+{% endif %}
+<!-- <img src="media/images/placeholder-img.jpg" alt="blog image"> -->
 {% endblock banner %}
 
 {% block content %}
