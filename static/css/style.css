@@ -58,7 +58,7 @@ header{
 
 main{
     min-height: 45vh;
-    /* display:flex; */
+    display:flex;
 }
 
 /* ---------------------- BANNER H1 */
