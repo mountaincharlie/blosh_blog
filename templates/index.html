@@ -2,7 +2,7 @@
 
 {% block banner %}
 <h1 class="banner-h1 homepage-h1">Josh's Blog</h1>
-<img src="../static/images/home-bg-img.jpg" alt="homepage image">
+<img src="media/images/home-bg-img.jpg" alt="homepage image">
 {% endblock banner %}
  
 {% block content %}
@@ -29,8 +29,8 @@
             <div class="col-sm col-md-4 col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <!-- change to if statement with placeholder img -->
-                        <img class="card-img" src="../static/images/blog-img-fullsize.jpg" alt="blog image">
+                        <!-- placeholder img statement -->
+                        <img class="card-img" src="media/images/blog-img-fullsize.jpg" alt="blog image">
                         <div class="card-img-overlay">
                             <h3>{{ blog.title }}</h3>
                             <p>{{ blog.summary }}</p>
