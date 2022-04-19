@@ -40,9 +40,16 @@
             <nav>
                 <ul class="horizontal-list">
                     <li><a href="{% url 'home' %}">Blosh</a></li>
-                    <!-- <li><a href="{% url 'home' %}">Home</a></li> -->
-                    <!-- adding user authentification -->
-                    <li><a href="#">Sign in/up</a></li>
+                    {% if user.is_authenticated %}
+                    <!-- logout option if user is logged in -->
+                    <li><a href="{% url 'account_logout' %}">Logout</a></li>
+                    {% else %}
+                    <!-- register/login options if user not logged in -->
+                    <li>
+                        <span><a href="{% url 'account_login' %}">Login</a></span>
+                        <span><a href="{% url 'account_signup' %}">Signup</a></span>
+                    </li>
+                    {% endif %}
                 </ul>
             </nav>
         </header>
