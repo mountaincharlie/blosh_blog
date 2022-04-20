@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block banner %}
+<div class="allauth-banner">
+    <h1 class="allauth-form-h1">Sign Up</h1>
+    <p>If you already have an account, then please <a href="{% url 'account_signup' %}">Login</a></p>
+</div>
+{% endblock banner %}
+
+{% block content %}
+<!-- <form class="allauth-form login" method="POST" action="{% url 'account_login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <button class="allauth-form-btn" type="submit">{% trans "Sign In" %}</button>
+</form> -->
+
+<form class="allauth-form signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button class="allauth-form-btn" type="submit">{% trans "Sign Up" %}</button>
+</form>
+{% endblock %}
