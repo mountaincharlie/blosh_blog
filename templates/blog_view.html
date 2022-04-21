@@ -8,12 +8,11 @@
 <!-- placeholder img statement -->
 {% if "placeholder" in blog.main_image.url %}
     <!-- placeholder image in media dir -->
-    <img class="card-img" src="media/images/placeholder-img.jpg" alt="blog image">
+    <img class="card-img" src="{{ MEDIA_URL }}/images/placeholder-img.jpg" alt="blog image">
 {% else %}
     <!-- database image in Cloudinary -->
     <img class="card-img" src=" {{ blog.main_image.url }}" alt="blog image">
 {% endif %}
-<!-- <img src="media/images/placeholder-img.jpg" alt="blog image"> -->
 {% endblock banner %}
 
 {% block content %}
