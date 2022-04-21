@@ -42,7 +42,7 @@
     <!-- displaying approved comments -->
     <div class="text-muted">
         <i class="fa-solid fa-comments"></i>
-        {{ blog.number_of_comments }}
+        <!-- {{ blog.number_of_comments }}
         <h3>Comments:</h3>
         <div>
             {% for comment in comments %}
@@ -54,26 +54,23 @@
                 </p>
                 {{ comment.body | linebreaks}}
             </div>
-            {% endfor %}
         </div>
+        {% endfor %} -->
     </div>
-    {% if commented %}
-        <div class="alert alert-success" role="alert">
-            Comment posted
-        </div>
-    {% else %}
     {% if user.is_authenticated %}
     <div class="text-muted">
+        <p><i class="fa-solid fa-gears"></i> Commenting feature coming soon <i class="fa-solid fa-gears"></i></p>
+        <p>You can still send Josh feedback via <strong><a href="https://www.instagram.com/blosh.writing/" target="_blank">blosh.writing <i class="fa-brands fa-instagram"></i></a></strong></p>
+    </div>
+    <!-- FORM TO FIX -->
+    <!-- <div class="text-muted">
         <h4>Add comment:</h4>
         <form method="post">
-            <!-- our form and the program to format it -->
             {{ comment_form | crispy }}
-            <!-- prtecting against malicious users -->
             {% csrf_token %}
             <button class="allauth-form-btn" type="submit">Post as {{ user.username }}</button>
         </form>
-    </div>
-    {% endif %}
+    </div> -->
     {% endif %}
 </div>
 

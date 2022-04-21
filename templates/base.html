@@ -42,7 +42,10 @@
                     <li><a href="{% url 'home' %}">Blosh</a></li>
                     {% if user.is_authenticated %}
                     <!-- logout option if user is logged in -->
-                    <li><a href="{% url 'account_logout' %}">Logout</a></li>
+                    <li>
+                        <span>{{ user.username }}</span>
+                        <span><a href="{% url 'account_logout' %}">Logout</a></span>
+                    </li>
                     {% else %}
                     <!-- register/login options if user not logged in -->
                     <li>
@@ -73,7 +76,7 @@
             <ul class="horizontal-list">
                 <li>[contact form?]</li>
                 <li>[about author]</li>
-                <li>[instagram link]</li>
+                <li><a class="footer-icons" href="https://www.instagram.com/blosh.writing/" target="_blank" aria-label="Instagram icon"><i class="fa-brands fa-instagram fa-2x"></i></a></li>
             </ul>
         </footer>
 

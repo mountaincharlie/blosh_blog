@@ -200,8 +200,10 @@ li span {
 .card-img-overlay{
     height: 85%;
     overflow: clip;
+}
 
-    background-color: rgba(255, 255, 255, 0.5);
+.card-img-overlay h3, .card-img-overlay p{
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 .card-footer{
