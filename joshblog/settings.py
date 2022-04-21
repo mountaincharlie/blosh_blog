@@ -32,7 +32,8 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'django-insecure'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False  # True
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # allowing heroku as a host
 ALLOWED_HOSTS = ['blosh.herokuapp.com', 'localhost']
@@ -165,3 +166,5 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
