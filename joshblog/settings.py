@@ -32,7 +32,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'django-insecure'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT'
+DEBUG = 'DEVELOPMENT' in os.environ
 
 # allowing heroku as a host
 ALLOWED_HOSTS = ['blosh.herokuapp.com', 'localhost']
