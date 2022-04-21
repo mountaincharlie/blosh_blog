@@ -2,7 +2,8 @@
 
 {% block banner %}
 <h1 class="banner-h1 homepage-h1">Blosh</h1>
-<img src="{{ MEDIA_URL }}images/home-bg-img.jpg" alt="homepage image">
+<!-- <img src="{{ MEDIA_URL }}images/home-bg-img.jpg" alt="homepage image"> -->
+<img src="https://res.cloudinary.com/mountaincharlie/image/upload/v1650551484/media/images/home-bg-img_cajiyq.jpg" alt="homepage image">
 {% endblock banner %}
  
 {% block content %}
@@ -31,7 +32,8 @@
                     <!-- card bg image -->
                     {% if "placeholder" in blog.main_image.url %}
                         <!-- placeholder image in media dir -->
-                        <img class="card-img" src="{{ MEDIA_URL }}images/placeholder-img.jpg" alt="blog image">
+                        <!-- <img class="card-img" src="{{ MEDIA_URL }}images/placeholder-img.jpg" alt="blog image"> -->
+                        <img class="card-img" src="https://res.cloudinary.com/mountaincharlie/image/upload/v1650551484/media/images/placeholder-img_xjshjw.jpg" alt="blog image">
                     {% else %}
                         <!-- database image in Cloudinary -->
                         <img class="card-img" src=" {{ blog.main_image.url }}" alt="blog image">
