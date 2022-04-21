@@ -17,10 +17,12 @@ class Blog(models.Model):
     # spcifying media type and default
     main_image = CloudinaryField('image', default='placeholder')
     # shown on homepage tile
-    summary = models.TextField()
+    summary = models.TextField(blank=True)
     # allowing it to be blank
-    likes = models.ManyToManyField(User, blank=True, related_name='blog_likes')
-    comments = models.ManyToManyField(User, blank=True, related_name='blog_comments')
+    likes = models.ManyToManyField(User, blank=True, related_name='blog_like')
+
+    # user_comments = models.ManyToManyField(User, blank=True, related_name='user_comments')
+
     slug = models.SlugField(max_length=200, unique=True)
     # setting choices and default
     status = models.IntegerField(choices=BLOG_STATUS, default=0)
@@ -28,22 +30,22 @@ class Blog(models.Model):
     class Meta:
         # setting blolgs to be ordered by newest created date
         ordering = ['-created_date']
-    
+
     def __str__(self):
         # returns string rep of how the table is displayed
         return self.title
-    
+
     def number_of_likes(self):
         # returns total number of likes
         return self.likes.count()
-    
-    def number_of_comments(self):
-        # returns total number of comments
-        return self.comments.count()
+
+    # def number_of_comments(self):
+    #     # returns total number of comments
+    #     return self.user_comments.count()
 
 
 class Comment(models.Model):
-    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='comment')
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='comments')
     # not unique so users can comment more than once
     name = models.CharField(max_length=80)
     email = models.EmailField()
@@ -55,7 +57,7 @@ class Comment(models.Model):
     class Meta:
         # setting blolgs to be ordered by newest created date
         ordering = ['-created_date']
-    
+
     def __str__(self):
         # returns string rep of how the table is displayed
         return f"Comment: {self.body} by: {self.name}"

@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
-from .models import Blog, Comment
+from .models import Blog  # , Comment
+from .forms import CommentForm  # our form class
 
 # Creating generic/reausable views with classes
 
@@ -16,14 +17,15 @@ class BlogList(generic.ListView):
 
 # viewing a blog
 class BlogView(View):
-    # using GET method to get the blog from db
-    # including standard arguments and keyword args
+    # getting blog from the db
     def get(self, request, slug, *args, **kwargs):
         queryset = Blog.objects.filter(status=1)  # all published blogs
-        blog = get_object_or_404(queryset, slug=slug)  # blog with its slug
+        blog = get_object_or_404(queryset, slug=slug)
 
         # getting all the approved comments in date order
-        comments = Comment.objects.filter(approved=True).order_by('created_date')
+        # where blog is in the Comment table and has related name = 'comments'
+        comments = blog.comments.filter(approved=True).order_by('-created_date')
+
         # boolean value for if the user liked this post or not
         liked = False
         # checking if the specific user liked it (using user.id)
@@ -34,17 +36,46 @@ class BlogView(View):
         return render(
             request,
             "blog_view.html",  # required template
-            # dictionary with the context (data to be passed to template)
+            # context as dictionary of data to be passed to template
             {
                 "blog": blog,
                 "comments": comments,
-                "commented": False,  # until comments are approved
+                "commented": False,  # until comment made
                 "liked": liked,
-                # "comment_form": CommentForm()
+                "comment_form": CommentForm()
             },
         )
 
-    # POST method to add
-    # getting date from comment_form
-    # checking if a comment has been made (is True)
-    # sending all this info to the render method
+    # post method only for authnticated users (v similar to get method)
+    def post(self, request, slug, *args, **kwargs):
+        queryset = Blog.objects.filter(status=1)
+        blog = get_object_or_404(queryset, slug=slug)
+        comments = blog.comments.filter(approved=True).order_by('created_date')
+        liked = False
+        if blog.likes.filter(id=self.request.user.id).exists():
+            liked = True
+
+        # getting the form data
+        comment_form = CommentForm(data=request.POST)
+        # checking if comment_form is True
+        if comment_form.is_valid():
+            # getting the users email and username
+            comment_form.instance.email = request.user.email
+            comment_form.instance.name = request.user.username
+            comment = comment_form.save(commit=False)
+            comment.blog = blog  # specify the blog it belongs to
+            comment.save()
+        else:
+            comment_form = CommentForm()  # empty instance
+
+        return render(
+            request,
+            "blog_view.html",
+            {
+                "blog": blog,
+                "comments": comments,
+                "commented": True,
+                "liked": liked,
+                "comment_form": comment_form  # not calling the function again
+            },
+        )

@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+<!-- for comments -->
+{% load crispy_forms_tags %}
 
 {% block banner %}
 <h1 class="banner-h1 blog-view-h1">{{ blog.title }}</h1>
@@ -17,7 +19,6 @@
 {% block content %}
 
 <div class="blog-view">
-    <!-- include crispy forms for comments -->
 
     <!-- alert messages -->
 
@@ -29,9 +30,7 @@
     </div>
     <!-- blog content -->
     <div>
-        <p>
-            {{ blog.content | safe }}
-        </p>
+        {{ blog.content | safe }}
     </div>
 
     <!-- the like/comment icon whether user is logged in or not -->
@@ -58,9 +57,25 @@
             {% endfor %}
         </div>
     </div>
+    {% if commented %}
+        <div class="alert alert-success" role="alert">
+            Comment posted
+        </div>
+    {% else %}
+    {% if user.is_authenticated %}
+    <div class="text-muted">
+        <h4>Add comment:</h4>
+        <form method="post">
+            <!-- our form and the program to format it -->
+            {{ comment_form | crispy }}
+            <!-- prtecting against malicious users -->
+            {% csrf_token %}
+            <button class="allauth-form-btn" type="submit">Post as {{ user.username }}</button>
+        </form>
+    </div>
+    {% endif %}
+    {% endif %}
 </div>
-
-
 
 <!-- awaiting approval message/leave a comment form -->
 
