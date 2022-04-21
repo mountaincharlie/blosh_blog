@@ -106,7 +106,7 @@ h1 {
 
 .blog-view hr{
     color: #03262d;
-    margin: 2em auto;
+    margin: 1em auto;
     width: 50%;
 }
 
@@ -234,6 +234,20 @@ li span {
 .allauth-form-btn:hover{
     color: rgba(116, 173, 186, 0.8);
     border-color: rgba(116, 173, 186, 0.8);
+}
+
+.like-btn {
+    border:none;
+    background-color: #fff;
+}
+
+.like-btn i:hover {
+    color: rgba(116, 173, 186, 0.8);
+}
+
+.like-hightlight{
+    /* color: rgba(116, 173, 186, 0.8); */
+    color: gold;
 }
 
 /* .read-more{

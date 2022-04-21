@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from .models import Blog  # , Comment
 from .forms import CommentForm  # our form class
+from django.http import HttpResponseRedirect
 
 # Creating generic/reausable views with classes
 
@@ -79,3 +80,19 @@ class BlogView(View):
                 "comment_form": comment_form  # not calling the function again
             },
         )
+
+# liking blogs
+class BlogLike(View):
+
+    # when the user clicks on the like button
+    def post(self, request, slug):
+        # getting the blog post
+        blog = get_object_or_404(Blog, slug=slug)
+        # if the user is logged in, clicking will toggle like/unlike
+        if blog.likes.filter(id=request.user.id).exists():
+            blog.likes.remove(request.user)
+        else:
+            blog.likes.add(request.user)
+
+        # now want the template to refresh to show the change
+        return HttpResponseRedirect(reverse('blog_view', args=[slug]))

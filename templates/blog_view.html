@@ -32,17 +32,34 @@
     <div>
         {{ blog.content | safe }}
     </div>
-
+    <hr>
     <!-- the like/comment icon whether user is logged in or not -->
     <div class="text-muted">
-        <i class="fa-solid fa-hands-clapping"></i>
+        {% if user.is_authenticated %}
+            <!-- display inline, sends tp post_like url, uses slug argument POSt method -->
+            <form class="d-inline" method="post" action="{% url 'blog_like' blog.slug %}">
+                {% csrf_token %}
+                {% if liked %}
+                <button type="submit" name="blog_id" value="{{ blog.slug }}" class="like-btn">
+                    <i class="fa-solid fa-hands-clapping like-hightlight"></i>
+                </button>
+                {% else %}
+                <button type="submit" name="blog_id" value="{{ blog.slug }}" class="like-btn text-muted">
+                    <i class="fa-solid fa-hands-clapping"></i>
+                </button>
+                {% endif %}
+            </form>
+            <!-- if user not logged in -->
+        {% else %}
+            <i class="fa-solid fa-hands-clapping"></i>
+        {% endif %}
+        
         {{ blog.number_of_likes }} 
     </div>
-    <hr>
     <!-- displaying approved comments -->
-    <div class="text-muted">
+    <!-- <div class="text-muted">
         <i class="fa-solid fa-comments"></i>
-        <!-- {{ blog.number_of_comments }}
+        {{ blog.number_of_comments }}
         <h3>Comments:</h3>
         <div>
             {% for comment in comments %}
@@ -55,10 +72,11 @@
                 {{ comment.body | linebreaks}}
             </div>
         </div>
-        {% endfor %} -->
-    </div>
+        {% endfor %}
+    </div> -->
     {% if user.is_authenticated %}
     <div class="text-muted">
+        <i class="fa-solid fa-comments"></i>
         <p><i class="fa-solid fa-gears"></i> Commenting feature coming soon <i class="fa-solid fa-gears"></i></p>
         <p>You can still send Josh feedback via <strong><a href="https://www.instagram.com/blosh.writing/" target="_blank">blosh.writing <i class="fa-brands fa-instagram"></i></a></strong></p>
     </div>
