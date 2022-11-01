@@ -1,10 +1,10 @@
 # Blosh
-Josh's blog site
+Blog site for Joshua, a Creative Writing Student.
 
-[description ...] 
-[purpose ...] 
+### Deployed Site link
+* [Blosh](https://blosh.herokuapp.com/)
 
-[views on the AM I Responsive site?]
+![Viewing Blosh on desktop](./static/ .png "Viewing Blosh on desktop")
 
 ## Contents 
 ---
