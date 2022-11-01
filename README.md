@@ -4,7 +4,7 @@ Blog site for Joshua, a Creative Writing Student.
 ### Deployed Site link
 * [Blosh](https://blosh.herokuapp.com/)
 
-![Viewing Blosh on desktop](./static/ .png "Viewing Blosh on desktop")
+![Viewing Blosh on desktop](./static/readme_images/blosh-screenshot.png "Viewing Blosh on desktop")
 
 ## Contents 
 ---
