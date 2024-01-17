@@ -1,5 +1,5 @@
 # Blosh
-Blog site for Joshua, a Creative Writing Student.
+Blog site for Joshua, a Creative Writing Graduate.
 
 ### Deployed Site link
 * [Blosh](https://blosh.herokuapp.com/)
